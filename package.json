@@ -1,6 +1,6 @@
 {
   "name": "hypercore-create-stream",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "create a readable and/or writable stream of a hypercore feed",
   "main": "index.js",
   "scripts": {

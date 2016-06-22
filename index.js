@@ -58,6 +58,7 @@ module.exports = function createStream (key, opts) {
 function patch (stream, feed) {
   stream.feed = feed
   stream.key = feed.key
+  stream.secretKey = feed.secretKey
   stream.discoveryKey = feed.discoveryKey
   stream.live = feed.live
   return stream

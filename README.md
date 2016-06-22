@@ -33,8 +33,6 @@ All `options` are optional.
 ```js
 {
   db: leveldb instance,
-  key: buffer,
-  secretKey: buffer,
   static: boolean,
   storage: object,
   tail: boolean,
