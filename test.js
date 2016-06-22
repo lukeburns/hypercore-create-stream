@@ -33,7 +33,7 @@ tape('creates live writeable stream given no key', function (t) {
   var readable = !!stream.read
   var writeable = !!stream.write
 
-  t.ok(!readable, 'stream is not readable')
+  t.ok(readable, 'stream is readable')
   t.ok(writeable, 'stream is writable')
 
   var block0 = 'hello'
@@ -51,7 +51,7 @@ tape('creates static writeable stream given no key and static option', function 
   var readable = !!stream.read
   var writeable = !!stream.write
 
-  t.ok(!readable, 'stream is not readable')
+  t.ok(readable, 'stream is readable')
   t.ok(writeable, 'stream is writable')
 
   var block0 = 'hello'
