@@ -2,25 +2,31 @@
 
 Create a readable and/or writable stream of a hypercore feed.
 
+```
+npm install hypercore-create-stream
+```
+
 ## Usage 
 
-### New Feed
+### Create stream from a secret key
 
 ```js
 var createStream = require('hypercore-create-stream')
-var stream = createStream()
+var signatures = require('sodium-signatures')
 
+var keys = signatures.keyPair()
+var stream = createStream(keys.secretKey)
 stream.write('hello')
-stream.write('world')
-
-console.log('public key', stream.key.toString('hex'))
+stream.once('data', function (block) {
+  console.log(block.toString()) // hello
+})
 ```
 
 ## API
 
 #### `var stream = createStream([key], [options])`
 
-`key` is either a public or private key. If it is a public key, then the stream will be readable only. If it is a private key, then the stream will be both readable and writable. If it is undefined, then the stream's public and private keys are given by `stream.key` and `stream.secretKey`.
+`key` is either a public or private key. If it is a public key, then the stream will be readable only. If it is a private key, then the stream will be both readable and writable. If it is undefined, then a new feed is made and its public and private keys are given by `stream.key` and `stream.secretKey`.
 
 All `options` are optional.
 

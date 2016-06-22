@@ -1,4 +1,4 @@
-var createStream = require('./create-stream')
+var createStream = require('./')
 var signatures = require('sodium-signatures')
 var tape = require('tape')
 
