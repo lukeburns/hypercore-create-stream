@@ -30,26 +30,19 @@ module.exports = function createStream (key, opts) {
     storage: opts.storage 
   })
 
-  var read = !!key
+  var rs = feed.createReadStream({ 
+    live: !!opts.tail,
+    start: opts.start,
+    end: opts.end
+  })
+
   var write = !key || !!secretKey
-  var stream, swarm
-
-  if (read) {
-    var rs = feed.createReadStream({ 
-      live: !!opts.tail,
-      start: opts.start,
-      end: opts.end
-    })
-  }
-
+  
   if (write) {
     var ws = feed.createWriteStream()
-  }
-
-  if (read && write) {
-    stream = patch(duplexify(ws, rs), feed)
+    var stream = patch(duplexify(ws, rs), feed)
   } else {
-    stream = rs || ws
+    var stream = patch(rs, feed)
   }
 
   return stream;
