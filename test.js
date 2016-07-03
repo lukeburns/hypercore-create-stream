@@ -39,6 +39,7 @@ tape('creates live writeable stream given no key', function (t) {
   var block0 = 'hello'
   stream.write(block0)
   stream.feed.get(0, function (err, block) {
+    if (err) return
     t.equal(block.toString(), block0, 'data written to stream is appended to feed')
     t.ok(stream.feed.live, 'feed is live')
   })
@@ -59,6 +60,7 @@ tape('creates static writeable stream given no key and static option', function 
   stream.end()
   stream.on('finish', function () {
     stream.feed.get(0, function (err, block) {
+      if (err) return
       t.equal(block.toString(), block0, 'data written to stream is appended to feed')
       t.ok(!stream.feed.live, 'feed is static')
     })
@@ -78,6 +80,7 @@ tape('creates readable and writable duplex stream given secret key', function (t
   var block0 = 'hello'
   stream.write(block0)
   stream.feed.get(0, function (err, block) {
+    if (err) return
     t.equal(block.toString(), block0, 'data written to stream is appended to feed')
 
     var block1 = 'world'

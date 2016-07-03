@@ -1,9 +1,9 @@
-# hypercore-create-stream
+# hypercore-stream
 
-Create a readable and/or writable stream of a hypercore feed.
+Create a hypercore stream from a public or private key.
 
 ```
-npm install hypercore-create-stream
+npm install hypercore-stream
 ```
 
 ## Usage 
@@ -11,7 +11,7 @@ npm install hypercore-create-stream
 ### Create stream from a secret key
 
 ```js
-var createStream = require('hypercore-create-stream')
+var createStream = require('hypercore-stream')
 var signatures = require('sodium-signatures')
 
 var keys = signatures.keyPair()

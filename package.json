@@ -1,10 +1,10 @@
 {
-  "name": "hypercore-create-stream",
-  "version": "0.2.0",
-  "description": "create a readable and/or writable stream of a hypercore feed",
+  "name": "hypercore-stream",
+  "version": "0.2.1",
+  "description": "Create a hypercore stream from a public or private key",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "standard && node test.js"
   },
   "author": "Luke Burns <lukemburns@gmail.com> (http://lukeburns.com/)",
   "license": "MIT",
@@ -16,6 +16,7 @@
   "devDependencies": {
     "level-party": "^3.0.4",
     "sodium-signatures": "^1.2.2",
-    "tape": "^4.6.0"
+    "tape": "^4.6.0",
+    "standard": "^6.0.8"
   }
 }
