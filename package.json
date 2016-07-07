@@ -1,6 +1,6 @@
 {
   "name": "hypercore-stream",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Create a hypercore stream from a public or private key",
   "main": "index.js",
   "scripts": {
